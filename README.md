@@ -46,7 +46,9 @@ DELETE http://localhost:3333/encripts/delete/:id
 ## Possíveis Respostas
 
 - Ao buscar todos, retorna cada registro na seguinte estrutura 
-(os campos createdAt (data de criação) e updatedAt (data de atualização) são requisitados pelo ORM Sequelize):
+
+    (os campos createdAt (data de criação) e updatedAt (data de atualização) são requisitados pelo ORM Sequelize):
+
 {
     "data": [
         {
@@ -59,17 +61,20 @@ DELETE http://localhost:3333/encripts/delete/:id
 }
 
 - Após CREATE, retorna o id e o texto encriptado do registro criado:
+
 {
     "id": 1,
     "encripted_name": "bba09001395c5516405a"
 }
 
 - Ao buscar por ID, recebe-se o texto desencriptado:
+
 {
     "name": "Deu certo!"
 }
 
 - Esta é a resposta após atualizar:
+
 {
     "message": "Texto atualizado com sucesso. "
 }
@@ -80,12 +85,14 @@ DELETE http://localhost:3333/encripts/delete/:id
 }
 
 - Em caso de entrada inválida ou nula, retorna:
+
 {
     "code": "E_VALIDATION_FAILURE",
     "message": "O campo \"name\" é obrigatório"
 }
 
 - Em caso de erro de rota, retorna:
+
 {
     "message": "Não foi possível acessar a rota."
 }
