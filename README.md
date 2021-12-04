@@ -1,55 +1,63 @@
 # Encrypter/Decrypter
-Descrição:
-API de criptografia e descriptografia de textos (não requer autenticação).
-Tecnologias: NodeJS, Express, banco PostgreSQL
+
+Descrição: <br/>
+API de criptografia e descriptografia de textos (não requer autenticação). <br/>
+
+| Tecnologias   |
+| ---           |
+| NodeJS        |
+| Express       |
+| PostgreSQL    | 
 
 ## Preparação e Execução
-Instale as dependências com:
+
+Instale as dependências com: <br/>
 `yarn install`
 
-Instale o PostgreSQL e crie o banco "teste" com:
-`yarn createdb`  e  `yarn setdb` 
+Instale o PostgreSQL e crie o banco "teste" com: <br/>
+`yarn createdb` e `yarn setdb`
 
-Observações:
-(caso precise restaurar as tabelas, use o reset) `yarn resetdb` 
+Observações: <br/>
+(caso precise restaurar as tabelas, use o reset) `yarn resetdb`
+<br/>
+- Importante: esta API usa usuário e senha padrão do banco, que são Username: "postgres" e Password: "postgres". <br/>
 
-- Importante: esta API usa usuário e senha padrão do banco, que são Username: "postgres" e Password: "postgres".
+Execute com: <br/>
+`yarn run dev` ou apenas `yarn dev`
 
-Execute com:
-`yarn run dev`  ou apenas  `yarn dev`
+## Entradas e Saídas
 
-## Entradas e Saídas 
-A entrada precisa estar em formato JSON e, obrigatoriamente, conter o campo "name", como segue:
+A entrada precisa estar em formato JSON e, obrigatoriamente, conter o campo "name", como segue: <br/>
+`{ "name": "texto" }`
 
-{ "name": "texto" }
-
-O formato da resposta também é em JSON, com mensagem de sucesso, erro ou o registro buscado.
+O formato da resposta também é em JSON, com mensagem de sucesso, erro ou o registro buscado. <br/>
 
 ## Métodos e Rotas
-Utilize as seguintes rotas para testar (envie o JSON acima nos métodos POST):
 
-Buscar todos os registros: 
+Utilize as seguintes rotas para testar (envie o JSON acima nos métodos POST): <br/><br/>
+
+Buscar todos os registros: <br/>
 GET http://localhost:3333/encripts/
 
-Buscar por ID:
+Buscar por ID: <br/>
 GET http://localhost:3333/encripts/:id
 
-Criar: 
+Criar: <br/>
 POST http://localhost:3333/encripts/
 
-Atualizar:
+Atualizar: <br/>
 POST http://localhost:3333/encripts/edit/:id
 
-Excluir:
+Excluir: <br/>
 DELETE http://localhost:3333/encripts/delete/:id
 
 ## Possíveis Respostas
 
-- Ao buscar todos, retorna cada registro na seguinte estrutura 
+- Ao buscar todos, retorna cada registro na seguinte estrutura <br/>
+  (os campos createdAt (data de criação) e updatedAt (data de atualização) são requisitados pelo ORM Sequelize): <br/>
 
-    (os campos createdAt (data de criação) e updatedAt (data de atualização) são requisitados pelo ORM Sequelize):
-
-`{
+```json
+{
     "data": [
         {
             "id": 1,
@@ -58,43 +66,55 @@ DELETE http://localhost:3333/encripts/delete/:id
             "updatedAt": "2021-12-04T13:10:47.464Z"
         }
     ]
-}`
+}
+```
 
-- Após CREATE, retorna o id e o texto encriptado do registro criado:
+- Após CREATE, retorna o id e o texto encriptado do registro criado: <br/>
 
-`{
+```json
+{
     "id": 1,
     "encripted_name": "bba09001395c5516405a"
-}`
+}
+```
 
-- Ao buscar por ID, recebe-se o texto desencriptado:
+- Ao buscar por ID, recebe-se o texto desencriptado: <br/>
 
-`{
+```json
+{
     "name": "Deu certo!"
-}`
+}
+```
 
-- Esta é a resposta após atualizar:
+- Esta é a resposta após atualizar: <br/>
 
-`{
+```json
+{
     "message": "Texto atualizado com sucesso. "
-}`
+}
+```
 
-- E esta, após excluir:
+- E esta, após excluir: <br/>
 
-`{
+```json
+{
     "message": "Texto excluído com sucesso. "
-}`
+}
+```
 
-- Em caso de entrada inválida ou nula, retorna:
+- Em caso de entrada inválida ou nula, retorna: <br/>
 
-`{
+```json
+{
     "code": "E_VALIDATION_FAILURE",
     "message": "O campo \"name\" é obrigatório"
-}`
+}
+```
 
-- Em caso de erro de rota, retorna:
+- Em caso de erro de rota, retorna: <br/>
 
-`{
+```json
+{
     "message": "Não foi possível acessar a rota."
-}`
-
+}
+```
