@@ -8,14 +8,13 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "dev": "concurrently \"nodemon ./src/app.ts\"",
-    "start": "concurrently \"nodemon ./src/app.ts\"",
+    "dev": "nodemon ./src/app.ts",
+    "start": "nodemon ./src/app.ts",
     "client": "cd /app && yarn start",
     "createdb": "yarn sequelize db:create",
     "setdb": "yarn sequelize db:migrate && yarn sequelize db:seed:all",
     "resetdb": "yarn sequelize db:migrate:undo:all && yarn sequelize db:migrate && yarn sequelize db:seed:all",
-    "build": "yarn run sucrase",
-    "build-production": "yarn run sucrase",
+    "production": "nodemon ./src/app.ts",
     "sucrase": "sucrase-node src/server.js"
 
   },
