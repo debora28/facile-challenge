@@ -1,10 +1,10 @@
 {
-  "name": "react-node",
+  "name": "facile-challenge",
   "version": "1.0.0",
   "engines": {
     "node": "14.18.0"
   },
-  "description": "Projeto",
+  "description": "API de criptografia e descriptografia de textos utilizando Cipher e Decipher",
   "main": "index.js",
   "scripts": {
     "test": "jest",
@@ -18,14 +18,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/debora28/react-node.git"
+    "url": "git+https://github.com/debora28/facile-challenge.git"
   },
   "author": "Debora",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/debora28/react-node/issues"
+    "url": "https://github.com/debora28/facile-challenge/issues"
   },
-  "homepage": "https://github.com/debora28/react-node#readme",
+  "homepage": "https://github.com/debora28/facile-challenge#readme",
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/cors": "^2.8.12",
