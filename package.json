@@ -15,6 +15,7 @@
     "setdb": "yarn sequelize db:migrate && yarn sequelize db:seed:all",
     "resetdb": "yarn sequelize db:migrate:undo:all && yarn sequelize db:migrate && yarn sequelize db:seed:all",
     "production": "nodemon ./src/app.ts",
+    "build": "yarn run sucrase",
     "sucrase": "sucrase-node src/server.js"
 
   },
