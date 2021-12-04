@@ -6,6 +6,8 @@ import { QueryTypes, Sequelize } from "sequelize";
 var crypto = require("crypto");
 
 class TextoController implements Controller {
+
+  // GET http://localhost:3333/encripts/
   async all(req: Request, res: Response, next: NextFunction): Promise<any> {
     try {
       const textos = await Texto.findAll();
@@ -16,6 +18,7 @@ class TextoController implements Controller {
     }
   }
 
+  // GET http://localhost:3333/encripts/:id
   async find(req: Request, res: Response, next: NextFunction): Promise<any> {
     try {
       const { id } = req.params;
@@ -37,6 +40,7 @@ class TextoController implements Controller {
     }
   }
 
+  // POST http://localhost:3333/encripts/
   async create(req: Request, res: Response, next: NextFunction): Promise<any> {
     try {
       const { name } = req.body;
@@ -44,7 +48,6 @@ class TextoController implements Controller {
       let pwd = "456456";
 
       const crypted = crypto.createCipher(alg, pwd).update(name, "utf8", "hex");
-
       const texto = await Texto.create({
         name: crypted,
       });
@@ -60,23 +63,27 @@ class TextoController implements Controller {
     }
   }
 
+  // POST http://localhost:3333/encripts/edit/:id
   async update(req: Request, res: Response, next: NextFunction): Promise<any> {
     const { name } = req.body;
     try {
       const { id } = req.params;
       let params = { name };
-      await Texto.update(params, { where: { id } });
       
+      await Texto.update(params, { where: { id } });
+
       res.status(200).json({ message: "Texto atualizado com sucesso. " });
     } catch (error) {
       res.status(401).json({ message: error.message });
     }
   }
 
+  // DELETE http://localhost:3333/encripts/delete/:id
   async delete(req: Request, res: Response, next: NextFunction): Promise<any> {
     try {
       const { id } = req.params;
       await Texto.destroy({ where: { id } });
+
       res.status(200).json({ message: "Texto excluído com sucesso. " });
     } catch (error) {
       res.status(401).json({ message: error.message });
