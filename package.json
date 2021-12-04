@@ -14,8 +14,8 @@
     "createdb": "yarn sequelize db:create",
     "setdb": "yarn sequelize db:migrate && yarn sequelize db:seed:all",
     "resetdb": "yarn sequelize db:migrate:undo:all && yarn sequelize db:migrate && yarn sequelize db:seed:all",
-    "build": "sucrase ./src/app.ts",
-    "production": "sucrase ./src/app.ts"
+    "build": "node -r sucrase/register",
+    "production": "node -r sucrase/register"
   },
   "repository": {
     "type": "git",
