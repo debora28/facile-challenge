@@ -49,7 +49,7 @@ DELETE http://localhost:3333/encripts/delete/:id
 
     (os campos createdAt (data de criação) e updatedAt (data de atualização) são requisitados pelo ORM Sequelize):
 
-{
+`{
     "data": [
         {
             "id": 1,
@@ -58,42 +58,43 @@ DELETE http://localhost:3333/encripts/delete/:id
             "updatedAt": "2021-12-04T13:10:47.464Z"
         }
     ]
-}
+}`
 
 - Após CREATE, retorna o id e o texto encriptado do registro criado:
 
-{
+`{
     "id": 1,
     "encripted_name": "bba09001395c5516405a"
-}
+}`
 
 - Ao buscar por ID, recebe-se o texto desencriptado:
 
-{
+`{
     "name": "Deu certo!"
-}
+}`
 
 - Esta é a resposta após atualizar:
 
-{
+`{
     "message": "Texto atualizado com sucesso. "
-}
+}`
 
 - E esta, após excluir:
-{
+
+`{
     "message": "Texto excluído com sucesso. "
-}
+}`
 
 - Em caso de entrada inválida ou nula, retorna:
 
-{
+`{
     "code": "E_VALIDATION_FAILURE",
     "message": "O campo \"name\" é obrigatório"
-}
+}`
 
 - Em caso de erro de rota, retorna:
 
-{
+`{
     "message": "Não foi possível acessar a rota."
-}
+}`
 
