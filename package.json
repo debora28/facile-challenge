@@ -1,6 +1,9 @@
 {
   "name": "react-node",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.18.0"
+  },
   "description": "Projeto",
   "main": "index.js",
   "scripts": {
