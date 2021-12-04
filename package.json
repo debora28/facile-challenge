@@ -4,20 +4,16 @@
   "engines": {
     "node": "14.18.0"
   },
-  "description": "API de criptografia e descriptografia de textos utilizando Cipher e Decipher",
+  "description": "API de criptografia e descriptografia de textos utilizando Cipher e Decipher.",
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "dev": "nodemon ./src/app.ts",
-    "start": "nodemon ./src/app.ts",
+    "dev": "concurrently \"nodemon ./src/app.ts\"",
+    "start": "concurrently \"nodemon ./src/app.ts\"",
     "client": "cd /app && yarn start",
     "createdb": "yarn sequelize db:create",
     "setdb": "yarn sequelize db:migrate && yarn sequelize db:seed:all",
     "resetdb": "yarn sequelize db:migrate:undo:all && yarn sequelize db:migrate && yarn sequelize db:seed:all",
-    "production": "nodemon ./src/app.ts",
-    "build": "yarn run sucrase",
-    "sucrase": "sucrase-node src/server.js"
-
   },
   "repository": {
     "type": "git",
