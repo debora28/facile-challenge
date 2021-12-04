@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "dev": "concurrently \"nodemon ./src/app.ts\"",
     "start": "concurrently \"nodemon ./src/app.ts\"",
     "client": "cd /app && yarn start",
     "createdb": "yarn sequelize db:create",
