@@ -12,13 +12,15 @@ Instale o PostgreSQL e crie o banco "teste" com:
 
 Observações:
 (caso precise restaurar as tabelas, use o reset) `yarn resetdb` 
-(Importante: esta API usa usuário e senha padrão do banco, que são Username: "postgres" e Password: "postgres")
+
+- Importante: esta API usa usuário e senha padrão do banco, que são Username: "postgres" e Password: "postgres".
 
 Execute com:
 `yarn run dev`  ou apenas  `yarn dev`
 
 ## Entradas e Saídas 
-A entrada precisa estar em formato JSON e, obrigatoriamente, conter o campo "name":
+A entrada precisa estar em formato JSON e, obrigatoriamente, conter o campo "name", como segue:
+
 { "name": "texto" }
 
 O formato da resposta também é em JSON, com mensagem de sucesso, erro ou o registro buscado.
