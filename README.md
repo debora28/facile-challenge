@@ -1,7 +1,8 @@
 # Encrypter/Decrypter
 
 Descrição: <br/>
-API de criptografia e descriptografia de textos (não requer autenticação). <br/>
+API de criptografia e descriptografia de textos utilizando Cipher e Decipher. <br/>
+O acesso não requer autenticação. <br/>
 
 | Tecnologias   |
 | ---           |
@@ -69,7 +70,7 @@ DELETE http://localhost:3333/encripts/delete/:id
 }
 ```
 
-- Após CREATE, retorna o id e o texto encriptado do registro criado: <br/>
+- Após criar o registro, retorna seu id e o texto encriptado: <br/>
 
 ```json
 {
