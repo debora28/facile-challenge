@@ -24,11 +24,3 @@ module.exports = {
     dialect: "postgres",
   },
 };
-// const { Sequelize } = require("sequelize");
-
-// const config = new Sequelize("teste", "postgres", "postgres", {
-//   host: "localhost",
-//   dialect: "postgres",
-// });
-
-// export default config;

@@ -52,7 +52,7 @@ class TextoController implements Controller {
         name: crypted,
       });
 
-      res.status(200).json({ id: texto.id, encripted_name: "shazam" });
+      res.status(200).json({ id: texto.id, encripted_name: texto.name });
     } catch (error) {
       console.log(error);
 
